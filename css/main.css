@@ -8,11 +8,20 @@ body {
 }
 
 .new-body {
-	padding: 70px;
+	padding: 50px;
+}
+
+.nav {
+	font-family: 'Open Sans',Arial,Helvetica Neue,sans-serif;
+	text-transform: uppercase;
+    line-height: 0.8;
+    letter-spacing: 2px;
+    font-weight: 300;
 }
 
 .row {
-	padding: 50px;
+	padding-top: 0;
+	padding-bottom: 40px;
 }
 
 .starter-template {
@@ -48,10 +57,6 @@ body {
 	color: #FFFFFF;
 }
 
-.navbar-nav {
-	font-family: 'Open Sans',Arial,Helvetica Neue,sans-serif;
-	letter-spacing: 1.5px;
-}
 
 .center-search-bar {
 	padding: 10px;
@@ -79,12 +84,19 @@ body {
 	color: #FFFFFF;
 }
 
-.glyphicon-plus {
-		cursor: pointer;
+.glyphicon-plus, .glyphicon-minus {
+	font-size: 30px;
+	cursor: pointer;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	/* ...and now for the proper property */
+	transition:.5s;
 }
 
-.glyphicon-minus {
-		cursor: pointer;
+.glyphicon-plus:hover, .glyphicon-minus:hover {
+	color: #1ABC9C;
 }
 
 .item-form {
