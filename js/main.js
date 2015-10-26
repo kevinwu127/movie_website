@@ -18,6 +18,8 @@
 })(jQuery);
 
 $(document).ready(function() {
+
+  // ACTOR
   $('#actor_btn').click(function(e){    
           $('#actor_btn').fadeOut('fast', function() {
             $('#actor').fadeIn('fast');
@@ -30,7 +32,15 @@ $(document).ready(function() {
           });
           
   });
+  $('#actor_cancel').click(function(e){   
+          $('#actor').fadeOut('fast', function() {
+            $('#actor_btn').fadeIn('fast');
+          });
+          
+  });
 
+
+  // DIRECTOR
   $('#director_btn').click(function(e){    
           $('#director_btn').fadeOut('fast', function() {
             $('#director').fadeIn('fast');
@@ -43,7 +53,15 @@ $(document).ready(function() {
           });
           
   });
+  $('#director_cancel').click(function(e){   
+          $('#director').fadeOut('fast', function() {
+            $('#director_btn').fadeIn('fast');
+          });
+          
+  });
 
+
+  // MOVIE
   $('#movie_btn').click(function(e){    
           $('#movie_btn').fadeOut('fast', function() {
             $('#movie').fadeIn('fast');
@@ -57,6 +75,8 @@ $(document).ready(function() {
           
   });
 
+
+  // RELATION
   $('#relation_btn').click(function(e){    
           $('#relation_btn').fadeOut('fast', function() {
             $('#relation').fadeIn('fast');

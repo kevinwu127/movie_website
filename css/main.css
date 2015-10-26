@@ -91,6 +91,10 @@ body {
 	padding-top: 15px;
 }
 
+.radio {
+	text-align: left;
+}
+
 #actor {
 	display: none;
 }
