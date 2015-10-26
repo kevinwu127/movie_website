@@ -1,0 +1,184 @@
+body {
+	background: linear-gradient(270deg, #3ca388, #444fa3, #8144a3);
+	background-size: 600% 600%;
+	-webkit-animation: AnimationName 7s ease infinite;
+	-moz-animation: AnimationName 7s ease infinite;
+	-o-animation: AnimationName 7s ease infinite;
+	animation: AnimationName 7s ease infinite;
+}
+
+.new-body {
+	padding: 70px;
+}
+
+.row {
+	padding: 50px;
+}
+
+.starter-template {
+	padding:  10px 15px;
+	text-align: center;
+}
+
+.starter-template h1 {
+	font-family: 'Open Sans',Arial,Helvetica Neue,sans-serif;
+	width: 100%;
+    font-size: 25px;
+    text-transform: uppercase;
+    line-height: 0.8;
+    letter-spacing: 3px;
+    font-weight: 300;
+    color: #FFFFFF;
+    padding: 10px;
+}
+
+.starter-template p {
+	font-family: 'Open Sans',Arial,Helvetica Neue,sans-serif;
+	width: 100%;
+    font-size: 15px;
+    text-transform: uppercase;
+    line-height: 0.8;
+    letter-spacing: 3px;
+    font-weight: 300;
+    color: #FFFFFF;
+}
+
+.logo {
+	font-size: 200px;
+	color: #FFFFFF;
+}
+
+.navbar-nav {
+	font-family: 'Open Sans',Arial,Helvetica Neue,sans-serif;
+	letter-spacing: 1.5px;
+}
+
+.center-search-bar {
+	padding: 10px;
+	width: 65%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.vertical-center {
+	min-height: 100%;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+}
+
+.new-item {
+	font-size: 100px;
+	color: #FFFFFF;
+	padding-bottom: 50px;
+	padding-top: 25px;
+}
+
+.add-item {
+	font-size: 25px;
+	color: #FFFFFF;
+}
+
+.glyphicon-plus {
+		cursor: pointer;
+}
+
+.glyphicon-minus {
+		cursor: pointer;
+}
+
+.item-form {
+	padding-top: 15px;
+}
+
+#actor {
+	display: none;
+}
+#director {
+	display: none;
+}
+#movie {
+	display: none;
+}
+#relation {
+	display: none;
+}
+
+
+/********************** Animations *************************/
+
+.m-scene .scene_element {
+  /** Basic styles for an animated element */
+    animation-duration: 0.5s;
+    transition-timing-function: ease-in;
+    animation-fill-mode: both;
+
+}
+
+.m-scene .delay1 {
+	animation-delay: 0.15s;
+}
+.m-scene .delay2 {
+	animation-delay: 0.30s;
+}
+.m-scene .delay3 {
+	animation-delay: 0.45s;
+}
+
+
+  /** An element that fades in */
+.m-scene .scene_element--fadein {
+    animation-name: fadeIn;
+}
+
+.m-scene .scene_element--fadeinup {
+    animation-name: fadeInUp;
+}
+
+.m-scene &.is-exiting .scene_element {
+	animation-direction: alternate-reverse;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
