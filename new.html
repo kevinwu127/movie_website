@@ -32,6 +32,7 @@
 
   <body class="new-body m-scene" id="main">
 
+    <!-- NAV BAR -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -51,10 +52,21 @@
             <li class="active"><a href="new.html">Add New</a></li>
             <li><a href="#browse">Browse</a></li>
           </ul>
+          <form class="navbar-form navbar-right" action="#" role="search">
+            <div class="form-group">
+              <div class="input-group">
+                <input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
+                <span class="input-group-btn">
+                  <button type="reset" class="btn"><span class="fui-search"></span></button>
+                </span>
+              </div>
+            </div>
+          </form>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
+    <!-- MAIN CONTAINER -->
     <div class="container-fluid">
 
       <div class="starter-template">
@@ -83,7 +95,7 @@
                         </div><!-- /form-group -->
                         <div class="form-group">
                           <label for="gender" class="control-label col-xs-2">Sex</label>
-                          <div class="col-xs-10">
+                          <div class="col-xs-10" id="gender">
                             <label class="radio">
                               <input type="radio" name="gender" id="male_actor" value="option1" data-toggle="radio">
                               Male
@@ -142,7 +154,7 @@
                         </div><!-- /form-group -->
                         <div class="form-group">
                           <label for="gender" class="control-label col-xs-2">Sex</label>
-                          <div class="col-xs-10">
+                          <div class="col-xs-10" id="gender">
                             <label class="radio">
                               <input type="radio" name="gender" id="male_director" value="option1" data-toggle="radio">
                               Male
@@ -152,7 +164,7 @@
                               Female
                             </label>
                           </div><!-- /col-xs-10 -->
-                        </div>
+                        </div><!-- /form-group -->
                         <div class="form-group">
                             <label for="directorDob" class="control-label col-xs-2">DOB</label>
                             <div class="col-xs-10">
@@ -185,9 +197,127 @@
               <div class="item-form">
                 <span class="glyphicon glyphicon-plus add-item" id="movie_btn" aria-hidden="true"></span>
                 <div id="movie">
-                  <p>
-                    INSERT MOVIE FORM HERE
-                  </p>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="movieTitle" class="control-label col-xs-2">Title</label>
+                            <div class="col-xs-10">
+                                <input type="text" class="form-control flat" id="movieTitle" placeholder="Title">
+                            </div>
+                        </div><!-- /form-group -->
+                        <div class="form-group">
+                            <label for="company" class="control-label col-xs-2">Co.</label>
+                            <div class="col-xs-10">
+                                <input type="text" class="form-control flat" id="company" placeholder="Company">
+                            </div>
+                        </div><!-- /form-group -->
+                        <div class="form-group">
+                            <label for="year" class="control-label col-xs-2">Year</label>
+                            <div class="col-xs-10">
+                                <input type="text" class="form-control flat" id="year" placeholder="Release Year">
+                            </div>
+                        </div><!-- /form-group -->
+                        <div class="form-group">
+                          <label for="rating" class="control-label col-xs-2">Rating</label>
+                          <div class="col-xs-10">
+                            <select data-toggle="select" class="form-control select select-primary mrs mbm" id="rating">
+                                <option value="G">G</option>
+                                <option value="PG">PG</option>
+                                <option value="PG-13">PG-13</option>
+                                <option value="R">R</option>
+                                <option value="NC-17">NC-17</option>
+                            </select>
+                          </div>
+                        </div><!-- /form-group -->
+                        <div class="form-group">
+                          <label for="genre" class="control-label col-xs-2">Genre</label>
+                          <div id="genre">
+                            <div class="col-xs-5">
+                              <label class="checkbox" for="Action">
+                                <input type="checkbox" data-toggle="checkbox" value="Action" id="Action" required>
+                                Action
+                              </label>
+                              <label class="checkbox" for="Adult">
+                                <input type="checkbox" data-toggle="checkbox" value="Adult" id="Adult" required>
+                                Adult
+                              </label>
+                              <label class="checkbox" for="Adventure">
+                                <input type="checkbox" data-toggle="checkbox" value="Adventure" id="Adventure" required>
+                                Adventure
+                              </label>
+                              <label class="checkbox" for="Animation">
+                                <input type="checkbox" data-toggle="checkbox" value="Animation" id="Animation" required>
+                                Animation
+                              </label>
+                              <label class="checkbox" for="Comedy">
+                                <input type="checkbox" data-toggle="checkbox" value="Comedy" id="Comedy" required>
+                                Comedy
+                              </label>
+                              <label class="checkbox" for="Crime">
+                                <input type="checkbox" data-toggle="checkbox" value="Crime" id="Crime" required>
+                                Crime
+                              </label>
+                              <label class="checkbox" for="Documentary">
+                                <input type="checkbox" data-toggle="checkbox" value="Documentary" id="Documentary" required>
+                                Documentary
+                              </label>
+                              <label class="checkbox" for="Drama">
+                                <input type="checkbox" data-toggle="checkbox" value="Drama" id="Drama" required>
+                                Drama
+                              </label>
+                              <label class="checkbox" for="Family">
+                                <input type="checkbox" data-toggle="checkbox" value="Family" id="Family" required>
+                                Family
+                              </label>
+                              <label class="checkbox" for="Fantasy">
+                                <input type="checkbox" data-toggle="checkbox" value="Fantasy" id="Fantasy" required>
+                                Fantasy
+                              </label>
+                            </div>
+                            <div class="col-xs-5">
+                              <label class="checkbox" for="Horror">
+                                <input type="checkbox" data-toggle="checkbox" value="Horror" id="Horror" required>
+                                Horror
+                              </label>
+                              <label class="checkbox" for="Musical">
+                                <input type="checkbox" data-toggle="checkbox" value="Musical" id="Musical" required>
+                                Musical
+                              </label>
+                              <label class="checkbox" for="Mystery">
+                                <input type="checkbox" data-toggle="checkbox" value="Mystery" id="Mystery" required>
+                                Mystery
+                              </label>
+                              <label class="checkbox" for="Romance">
+                                <input type="checkbox" data-toggle="checkbox" value="Romance" id="Romance" required>
+                                Romance
+                              </label>
+                              <label class="checkbox" for="Sci-Fi">
+                                <input type="checkbox" data-toggle="checkbox" value="Sci-Fi" id="Sci-Fi" required>
+                                Sci-Fi
+                              </label>
+                              <label class="checkbox" for="Short">
+                                <input type="checkbox" data-toggle="checkbox" value="Short" id="Short" required>
+                                Short
+                              </label>
+                              <label class="checkbox" for="Thriller">
+                                <input type="checkbox" data-toggle="checkbox" value="Thriller" id="Thriller" required>
+                                Thriller
+                              </label>
+                              <label class="checkbox" for="War">
+                                <input type="checkbox" data-toggle="checkbox" value="War" id="War" required>
+                                War
+                              </label>
+                              <label class="checkbox" for="Western">
+                                <input type="checkbox" data-toggle="checkbox" value="Western" id="Western" required>
+                                Western
+                              </label>
+                            </div>
+                          </div><!-- /genre -->
+                        </div><!-- /form-group -->
+                        <div class="form-group">
+                          <button type="reset" class="btn btn-primary btn-wide">Add</button>
+                          <button type="reset" class="btn btn-default btn-wide" id="movie_cancel">Cancel</button>
+                        </div>
+                    </form><!-- /form-horizontal -->
                    <span class="glyphicon glyphicon-minus add-item" id="movie_minimize" aria-hidden="true"></span>
 
                 </div><!-- /movie -->
@@ -202,11 +332,76 @@
               <div class="item-form">
                 <span class="glyphicon glyphicon-plus add-item" id="relation_btn" aria-hidden="true"></span>
                 <div id="relation">
-                  <p>
-                    INSERT RELATION FORM HERE
-                  </p>
+                  <form class="form-horizontal">
+                    <div class="form-group">
+                      <label for="relation-type" class="control-label col-xs-2">Type</label>
+                      <div id="relation-type">
+                        <div class="col-xs-5">
+                          <label class="radio">
+                            <input type="radio" name="relation" id="movie_actor" value="movie_actor" data-toggle="radio" checked="">
+                            Movie-Actor
+                          </label>
+                        </div><!-- /col-xs-5 -->
+                        <div class="col-xs-5">
+                          <label class="radio">
+                            <input type="radio" name="relation" id="movie_director" value="movie_director" data-toggle="radio">
+                            Movie-Director
+                          </label>
+                        </div><!-- /col-xs-5 -->
+                      </div><!-- /relation-type -->
+                    </div><!-- /form-group -->
+                    <div id="movie_actor_div">
+                      <div class="form-group">
+                        <label for="movie_actor_movie" class="control-label col-xs-2">Movie</label>
+                        <div class="col-xs-10">
+                          <select data-toggle="select" class="form-control select select-primary mrs mbm" id="movie_actor_movie">
+                              <option value="Default">Default</option>
+                          </select>
+                        </div>
+                      </div><!-- /form-group -->
+                      <div class="form-group">
+                        <label for="movie_actor_actor" class="control-label col-xs-2">Actor</label>
+                        <div class="col-xs-10">
+                          <select data-toggle="select" class="form-control select select-primary mrs mbm" id="movie_actor_actor">
+                              <option value="Default">Default</option>
+                          </select>
+                        </div>
+                      </div><!-- /form-group -->
+                      <div class="form-group">
+                        <label for="role" class="control-label col-xs-2">Role</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control flat" id="role" placeholder="Role">
+                        </div>
+                      </div><!-- /form-group -->
+                      <div class="form-group">
+                        <button type="reset" class="btn btn-primary btn-wide">Add</button>
+                        <button type="reset" class="btn btn-default btn-wide" id="movie_actor_cancel">Cancel</button>
+                      </div>
+                    </div><!-- /movie_actor_div -->
+                    <div id="movie_director_div">
+                      <div class="form-group">
+                        <label for="movie_director_movie" class="control-label col-xs-2">Movie</label>
+                        <div class="col-xs-10">
+                          <select data-toggle="select" class="form-control select select-primary mrs mbm" id="movie_director_movie">
+                              <option value="Default">Default</option>
+                          </select>
+                        </div>
+                      </div><!-- /form-group -->
+                      <div class="form-group">
+                        <label for="movie_director_director" class="control-label col-xs-2">Director</label>
+                        <div class="col-xs-10">
+                          <select data-toggle="select" class="form-control select select-primary mrs mbm" id="movie_director_director">
+                              <option value="Default">Default</option>
+                          </select>
+                        </div>
+                      </div><!-- /form-group -->
+                      <div class="form-group">
+                        <button type="reset" class="btn btn-primary btn-wide">Add</button>
+                        <button type="reset" class="btn btn-default btn-wide" id="movie_director_cancel">Cancel</button>
+                      </div>
+                    </div><!-- /movie_director_div -->
+                  </form><!-- /form-horizontal -->
                    <span class="glyphicon glyphicon-minus add-item" id="relation_minimize" aria-hidden="true"></span>
-
                 </div><!-- /relation -->
               </div><!-- /item_form -->
             </div><!-- /add_item -->

@@ -12,12 +12,16 @@
 
             // Quickly toggles a class and restarts css animations
             content.toggleAnimationClass('is-exiting');
+
+            // Scroll user to the top
+            $body.animate({ 'scrollTop': 0 });
           }
         }
       }).data('smoothState'); // makes public methods available
 })(jQuery);
 
 $(document).ready(function() {
+
 
   // ACTOR
   $('#actor_btn').click(function(e){    
@@ -66,12 +70,35 @@ $(document).ready(function() {
           $('#movie_btn').fadeOut('fast', function() {
             $('#movie').fadeIn('fast');
           });
-          
   });
   $('#movie_minimize').click(function(e){   
-          $('#movie').fadeOut('fast', function() {
-            $('#movie_btn').fadeIn('fast');
-          });
+          if ( $(window).width() > 769 ) {  
+              $("html, body").animate({ scrollTop: 0 }, 500, function () {
+                $('#movie').fadeOut('fast', function() {
+                  $('#movie_btn').fadeIn('fast');
+                });
+              });
+            }
+            else {
+              $('#movie').fadeOut('fast', function() {
+                  $('#movie_btn').fadeIn('fast');
+                });
+            }
+  });
+  $('#movie_cancel').click(function(e){ 
+
+            if ( $(window).width() > 769 ) {  
+              $("html, body").animate({ scrollTop: 0 }, 500, function () {
+                $('#movie').fadeOut('fast', function() {
+                  $('#movie_btn').fadeIn('fast');
+                });
+              });
+            }
+            else {
+              $('#movie').fadeOut('fast', function() {
+                  $('#movie_btn').fadeIn('fast');
+                });
+            }
           
   });
 
@@ -81,13 +108,52 @@ $(document).ready(function() {
           $('#relation_btn').fadeOut('fast', function() {
             $('#relation').fadeIn('fast');
           });
+
+          var relationVal = $('input[name="relation"]:checked').val();
+          if (relationVal == 'movie_actor') {
+            $('#movie_director_div').hide();
+            $('#movie_actor_div').show();
+          }
+          else {
+            $('#movie_actor_div').hide();
+            $('#movie_director_div').show();
+          }
           
   });
+
+  $('input[name="relation"]').on('change', function() {
+
+          if ( $(this).val() == 'movie_actor' ) {
+            $('#movie_director_div').fadeOut('fast', function() {
+              $('#movie_actor_div').fadeIn('fast');
+            });
+          }
+          else {
+            $('#movie_actor_div').fadeOut('fast', function() {
+              $('#movie_director_div').fadeIn('fast');
+            });
+          }
+  });
+
   $('#relation_minimize').click(function(e){   
           $('#relation').fadeOut('fast', function() {
             $('#relation_btn').fadeIn('fast');
           });
           
   });
+  $('#movie_actor_cancel').click(function(e){   
+          $('#relation').fadeOut('fast', function() {
+            $('#relation_btn').fadeIn('fast');
+          });
+          
+  });
+  $('#movie_director_cancel').click(function(e){   
+          $('#relation').fadeOut('fast', function() {
+            $('#relation_btn').fadeIn('fast');
+          });
+          
+  });
+
+
 
 });
