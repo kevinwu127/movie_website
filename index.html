@@ -63,12 +63,13 @@
         <p class="lead">To get started, search for your favorite movie/actor</p>
       </div><!-- /starter-template -->
        
-      <div class="input-group center-search-bar">
-        <input type="text" class="form-control" placeholder="Search for...">
+      <form class="input-group center-search-bar" role="search" method="get" action="php/search.php">
+        <input name="search" type="text" class="form-control" placeholder="Search for...">
         <span class="input-group-btn">
           <button class="btn" type="submit"><span class="fui-search"></span></button>
         </span>
-      </div><!-- /input-group -->
+      </form>
+
 
     </div><!-- /.container -->
 
