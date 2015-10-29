@@ -110,7 +110,7 @@
                   }
                   else
                   {
-                      echo "Failed!";
+                      echo "<p>There are no actors by that name</p>";
                   }
 
               }

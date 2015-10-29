@@ -80,11 +80,14 @@
                 <span class="glyphicon glyphicon-plus add-item" id="actor_btn" aria-hidden="true"></span>
                 <div id="actor">
                   <div class="actor-form">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" id="form_a">
+                        
+                        <input type="hidden" name="type" value="actor">
+                        
                         <div class="form-group">
                             <label for="actorFirst" class="control-label col-xs-2">First</label>
                             <div class="col-xs-10">
-                                <input type="text" class="form-control flat" id="actorFirst" placeholder="First Name">
+                                <input type="text" class="form-control flat" id="actorFirst" name="actorFirst" placeholder="First Name">
                             </div>
                         </div><!-- /form-group -->
                         <div class="form-group">
@@ -119,7 +122,7 @@
                             </div>
                         </div><!-- /form-group -->
                         <div class="form-group">
-                          <button type="reset" class="btn btn-primary btn-wide">Add</button>
+                          <button type="submit" id="actor_form_button" class="btn btn-primary btn-wide">Add</button>
                           <button type="reset" class="btn btn-default btn-wide" id="actor_cancel">Cancel</button>
                         </div>
                     </form><!-- /form-horizontal -->
@@ -139,7 +142,10 @@
                 <span class="glyphicon glyphicon-plus add-item" id="director_btn" aria-hidden="true"></span>
                 <div id="director">
                   <div class="director-form">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" id="form_d">
+
+                      <input type="hidden" name="type" value="director">
+
                         <div class="form-group">
                             <label for="directorFirst" class="control-label col-xs-2">First</label>
                             <div class="col-xs-10">
@@ -178,7 +184,7 @@
                             </div>
                         </div><!-- /form-group -->
                         <div class="form-group">
-                          <button type="reset" class="btn btn-primary btn-wide">Add</button>
+                          <button type="submit" id="director_form_button" class="btn btn-primary btn-wide">Add</button>
                           <button type="reset" class="btn btn-default btn-wide" id="director_cancel">Cancel</button>
                         </div>
                     </form><!-- /form-horizontal -->
@@ -197,7 +203,10 @@
               <div class="item-form">
                 <span class="glyphicon glyphicon-plus add-item" id="movie_btn" aria-hidden="true"></span>
                 <div id="movie">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" id="form_m">
+
+                      <input type="hidden" name="type" value="movie">
+
                         <div class="form-group">
                             <label for="movieTitle" class="control-label col-xs-2">Title</label>
                             <div class="col-xs-10">
@@ -314,7 +323,7 @@
                           </div><!-- /genre -->
                         </div><!-- /form-group -->
                         <div class="form-group">
-                          <button type="reset" class="btn btn-primary btn-wide">Add</button>
+                          <button type="submit" id="movie_form_button" class="btn btn-primary btn-wide">Add</button>
                           <button type="reset" class="btn btn-default btn-wide" id="movie_cancel">Cancel</button>
                         </div>
                     </form><!-- /form-horizontal -->
@@ -332,7 +341,10 @@
               <div class="item-form">
                 <span class="glyphicon glyphicon-plus add-item" id="relation_btn" aria-hidden="true"></span>
                 <div id="relation">
-                  <form class="form-horizontal">
+                  <form class="form-horizontal" id="form_r">
+
+                    <input type="hidden" name="type" value="relation">
+
                     <div class="form-group">
                       <label for="relation-type" class="control-label col-xs-2">Type</label>
                       <div id="relation-type">
@@ -374,7 +386,7 @@
                         </div>
                       </div><!-- /form-group -->
                       <div class="form-group">
-                        <button type="reset" class="btn btn-primary btn-wide">Add</button>
+                        <button type="submit" class="btn btn-primary btn-wide relation_form_button">Add</button>
                         <button type="reset" class="btn btn-default btn-wide" id="movie_actor_cancel">Cancel</button>
                       </div>
                     </div><!-- /movie_actor_div -->
@@ -396,7 +408,7 @@
                         </div>
                       </div><!-- /form-group -->
                       <div class="form-group">
-                        <button type="reset" class="btn btn-primary btn-wide">Add</button>
+                        <button type="submit" class="btn btn-primary btn-wide relation_form_button">Add</button>
                         <button type="reset" class="btn btn-default btn-wide" id="movie_director_cancel">Cancel</button>
                       </div>
                     </div><!-- /movie_director_div -->

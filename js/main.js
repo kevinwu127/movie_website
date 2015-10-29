@@ -54,23 +54,45 @@ function scrollToTop() {
   $('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
 }
 
+// FORM HANDLING
+function handle(form) {
+
+      // Initiate Variables with Form Content
+      var formData = $(form).serialize();
+
+      $.ajax({
+            type: "POST",
+            url: "php/handle.php",
+            data: formData,
+            success: function(text) {
+              alert(text);
+            }
+      });
+}
+
 $(document).ready(function() {
 
-
   // ACTOR
-  $('#actor_btn').click(function(e){    
+
+  $('#actor_form_button').on("click", function(e) {
+        e.preventDefault();
+        handle('#form_a');
+  });
+
+
+  $('#actor_btn').click(function(){    
           $('#actor_btn').fadeOut('fast', function() {
             $('#actor').fadeIn('fast');
           });
           
   });
-  $('#actor_minimize').click(function(e){   
+  $('#actor_minimize').click(function(){   
           $('#actor').fadeOut('fast', function() {
             $('#actor_btn').fadeIn('fast');
           });
           
   });
-  $('#actor_cancel').click(function(e){   
+  $('#actor_cancel').click(function(){   
           $('#actor').fadeOut('fast', function() {
             $('#actor_btn').fadeIn('fast');
           });
@@ -79,19 +101,25 @@ $(document).ready(function() {
 
 
   // DIRECTOR
-  $('#director_btn').click(function(e){    
+
+  $('#director_form_button').on("click", function(e) {
+        e.preventDefault();
+        handle('#form_d');
+  });
+
+  $('#director_btn').click(function(){    
           $('#director_btn').fadeOut('fast', function() {
             $('#director').fadeIn('fast');
           });
           
   });
-  $('#director_minimize').click(function(e){   
+  $('#director_minimize').click(function(){   
           $('#director').fadeOut('fast', function() {
             $('#director_btn').fadeIn('fast');
           });
           
   });
-  $('#director_cancel').click(function(e){   
+  $('#director_cancel').click(function(){   
           $('#director').fadeOut('fast', function() {
             $('#director_btn').fadeIn('fast');
           });
@@ -100,12 +128,18 @@ $(document).ready(function() {
 
 
   // MOVIE
-  $('#movie_btn').click(function(e){    
+
+  $('#movie_form_button').on("click", function(e) {
+        e.preventDefault();
+        handle('#form_m');
+  });
+
+  $('#movie_btn').click(function(){    
           $('#movie_btn').fadeOut('fast', function() {
             $('#movie').fadeIn('fast');
           });
   });
-  $('#movie_minimize').click(function(e){   
+  $('#movie_minimize').click(function(){   
           if ( $(window).width() > 769 ) {  
               $("html, body").animate({ scrollTop: 0 }, 500, function () {
                 $('#movie').fadeOut('fast', function() {
@@ -119,7 +153,7 @@ $(document).ready(function() {
                 });
             }
   });
-  $('#movie_cancel').click(function(e){ 
+  $('#movie_cancel').click(function(){ 
 
             if ( $(window).width() > 769 ) {  
               $("html, body").animate({ scrollTop: 0 }, 500, function () {
@@ -138,7 +172,13 @@ $(document).ready(function() {
 
 
   // RELATION
-  $('#relation_btn').click(function(e){    
+
+  $('.relation_form_button').on("click", function(e) {
+        e.preventDefault();
+        handle('#form_r');
+  });
+
+  $('#relation_btn').click(function(){    
           $('#relation_btn').fadeOut('fast', function() {
             $('#relation').fadeIn('fast');
           });
@@ -169,25 +209,24 @@ $(document).ready(function() {
           }
   });
 
-  $('#relation_minimize').click(function(e){   
+  $('#relation_minimize').click(function(){   
           $('#relation').fadeOut('fast', function() {
             $('#relation_btn').fadeIn('fast');
           });
           
   });
-  $('#movie_actor_cancel').click(function(e){   
+  $('#movie_actor_cancel').click(function(){   
           $('#relation').fadeOut('fast', function() {
             $('#relation_btn').fadeIn('fast');
           });
           
   });
-  $('#movie_director_cancel').click(function(e){   
+  $('#movie_director_cancel').click(function(){   
           $('#relation').fadeOut('fast', function() {
             $('#relation_btn').fadeIn('fast');
           });
           
   });
-
 
 
 });
