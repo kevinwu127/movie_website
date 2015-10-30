@@ -93,18 +93,18 @@
                         <div class="form-group">
                             <label for="actorLast" class="control-label col-xs-2">Last</label>
                             <div class="col-xs-10">
-                                <input type="text" class="form-control flat" id="actorLast" placeholder="Last Name">
+                                <input type="text" class="form-control flat" id="actorLast" name="actorLast" placeholder="Last Name">
                             </div>
                         </div><!-- /form-group -->
                         <div class="form-group">
                           <label for="gender" class="control-label col-xs-2">Sex</label>
                           <div class="col-xs-10" id="gender">
                             <label class="radio">
-                              <input type="radio" name="gender" id="male_actor" value="option1" data-toggle="radio">
+                              <input type="radio" name="gender" id="male_actor" value="Male" data-toggle="radio">
                               Male
                             </label>
                             <label class="radio">
-                              <input type="radio" name="gender" id="female_actor" value="option1" data-toggle="radio" checked="">
+                              <input type="radio" name="gender" id="female_actor" value="Female" data-toggle="radio" checked="">
                               Female
                             </label>
                           </div><!-- /col-xs-10 -->
@@ -112,13 +112,13 @@
                         <div class="form-group">
                             <label for="actorDob" class="control-label col-xs-2">DOB</label>
                             <div class="col-xs-10">
-                                <input type="text" class="form-control flat" id="actorDob" placeholder="MM/DD/YYYY">
+                                <input type="text" class="form-control flat" id="actorDob" name="actorDob" placeholder="MM/DD/YYYY">
                             </div>
                         </div><!-- /form-group -->
                         <div class="form-group">
                             <label for="actorDod" class="control-label col-xs-2">DOD</label>
                             <div class="col-xs-10">
-                                <input type="text" class="form-control flat" id="actorDod" placeholder="MM/DD/YYYY">
+                                <input type="text" class="form-control flat" id="actorDod" name="actorDod" placeholder="MM/DD/YYYY">
                             </div>
                         </div><!-- /form-group -->
                         <div class="form-group">
@@ -149,38 +149,25 @@
                         <div class="form-group">
                             <label for="directorFirst" class="control-label col-xs-2">First</label>
                             <div class="col-xs-10">
-                                <input type="text" class="form-control flat" id="directorFirst" placeholder="First Name">
+                                <input type="text" class="form-control flat" id="directorFirst" name="directorFirst" placeholder="First Name">
                             </div>
                         </div><!-- /form-group -->
                         <div class="form-group">
                             <label for="directorLast" class="control-label col-xs-2">Last</label>
                             <div class="col-xs-10">
-                                <input type="text" class="form-control flat" id="directorLast" placeholder="Last Name">
+                                <input type="text" class="form-control flat" id="directorLast" name="directorLast" placeholder="Last Name">
                             </div>
-                        </div><!-- /form-group -->
-                        <div class="form-group">
-                          <label for="gender" class="control-label col-xs-2">Sex</label>
-                          <div class="col-xs-10" id="gender">
-                            <label class="radio">
-                              <input type="radio" name="gender" id="male_director" value="option1" data-toggle="radio">
-                              Male
-                            </label>
-                            <label class="radio">
-                              <input type="radio" name="gender" id="female_director" value="option1" data-toggle="radio" checked="">
-                              Female
-                            </label>
-                          </div><!-- /col-xs-10 -->
                         </div><!-- /form-group -->
                         <div class="form-group">
                             <label for="directorDob" class="control-label col-xs-2">DOB</label>
                             <div class="col-xs-10">
-                                <input type="text" class="form-control flat" id="directorDob" placeholder="MM/DD/YYYY">
+                                <input type="text" class="form-control flat" id="directorDob" name="directorDob" placeholder="MM/DD/YYYY">
                             </div>
                         </div><!-- /form-group -->
                         <div class="form-group">
                             <label for="directorDod" class="control-label col-xs-2">DOD</label>
                             <div class="col-xs-10">
-                                <input type="text" class="form-control flat" id="directorDod" placeholder="MM/DD/YYYY">
+                                <input type="text" class="form-control flat" id="directorDod" name="directorDod" placeholder="MM/DD/YYYY">
                             </div>
                         </div><!-- /form-group -->
                         <div class="form-group">
@@ -210,25 +197,25 @@
                         <div class="form-group">
                             <label for="movieTitle" class="control-label col-xs-2">Title</label>
                             <div class="col-xs-10">
-                                <input type="text" class="form-control flat" id="movieTitle" placeholder="Title">
+                                <input type="text" class="form-control flat" id="movieTitle" name="movieTitle" placeholder="Title">
                             </div>
                         </div><!-- /form-group -->
                         <div class="form-group">
                             <label for="company" class="control-label col-xs-2">Co.</label>
                             <div class="col-xs-10">
-                                <input type="text" class="form-control flat" id="company" placeholder="Company">
+                                <input type="text" class="form-control flat" id="company" name="company" placeholder="Company">
                             </div>
                         </div><!-- /form-group -->
                         <div class="form-group">
                             <label for="year" class="control-label col-xs-2">Year</label>
                             <div class="col-xs-10">
-                                <input type="text" class="form-control flat" id="year" placeholder="Release Year">
+                                <input type="text" class="form-control flat" id="year" name = "year" placeholder="Release Year">
                             </div>
                         </div><!-- /form-group -->
                         <div class="form-group">
                           <label for="rating" class="control-label col-xs-2">Rating</label>
                           <div class="col-xs-10">
-                            <select data-toggle="select" class="form-control select select-primary mrs mbm" id="rating">
+                            <select data-toggle="select" class="form-control select select-primary mrs mbm" name="rating" id="rating">
                                 <option value="G">G</option>
                                 <option value="PG">PG</option>
                                 <option value="PG-13">PG-13</option>
@@ -242,81 +229,81 @@
                           <div id="genre">
                             <div class="col-xs-5">
                               <label class="checkbox" for="Action">
-                                <input type="checkbox" data-toggle="checkbox" value="Action" id="Action" required>
+                                <input type="checkbox" data-toggle="checkbox" value="Action" name="genre[]" id="Action" required>
                                 Action
                               </label>
                               <label class="checkbox" for="Adult">
-                                <input type="checkbox" data-toggle="checkbox" value="Adult" id="Adult" required>
+                                <input type="checkbox" data-toggle="checkbox" value="Adult" name="genre[]" id="Adult" required>
                                 Adult
                               </label>
                               <label class="checkbox" for="Adventure">
-                                <input type="checkbox" data-toggle="checkbox" value="Adventure" id="Adventure" required>
+                                <input type="checkbox" data-toggle="checkbox" value="Adventure" name="genre[]" id="Adventure" required>
                                 Adventure
                               </label>
                               <label class="checkbox" for="Animation">
-                                <input type="checkbox" data-toggle="checkbox" value="Animation" id="Animation" required>
+                                <input type="checkbox" data-toggle="checkbox" value="Animation" name="genre[]" id="Animation" required>
                                 Animation
                               </label>
                               <label class="checkbox" for="Comedy">
-                                <input type="checkbox" data-toggle="checkbox" value="Comedy" id="Comedy" required>
+                                <input type="checkbox" data-toggle="checkbox" value="Comedy" name="genre[]" id="Comedy" required>
                                 Comedy
                               </label>
                               <label class="checkbox" for="Crime">
-                                <input type="checkbox" data-toggle="checkbox" value="Crime" id="Crime" required>
+                                <input type="checkbox" data-toggle="checkbox" value="Crime" name="genre[]" id="Crime" required>
                                 Crime
                               </label>
                               <label class="checkbox" for="Documentary">
-                                <input type="checkbox" data-toggle="checkbox" value="Documentary" id="Documentary" required>
+                                <input type="checkbox" data-toggle="checkbox" value="Documentary" name="genre[]" id="Documentary" required>
                                 Documentary
                               </label>
                               <label class="checkbox" for="Drama">
-                                <input type="checkbox" data-toggle="checkbox" value="Drama" id="Drama" required>
+                                <input type="checkbox" data-toggle="checkbox" value="Drama" name="genre[]" id="Drama" required>
                                 Drama
                               </label>
                               <label class="checkbox" for="Family">
-                                <input type="checkbox" data-toggle="checkbox" value="Family" id="Family" required>
+                                <input type="checkbox" data-toggle="checkbox" value="Family" name="genre[]" id="Family" required>
                                 Family
                               </label>
                               <label class="checkbox" for="Fantasy">
-                                <input type="checkbox" data-toggle="checkbox" value="Fantasy" id="Fantasy" required>
+                                <input type="checkbox" data-toggle="checkbox" value="Fantasy" name="genre[]" id="Fantasy" required>
                                 Fantasy
                               </label>
                             </div>
                             <div class="col-xs-5">
                               <label class="checkbox" for="Horror">
-                                <input type="checkbox" data-toggle="checkbox" value="Horror" id="Horror" required>
+                                <input type="checkbox" data-toggle="checkbox" value="Horror" name="genre[]" id="Horror" required>
                                 Horror
                               </label>
                               <label class="checkbox" for="Musical">
-                                <input type="checkbox" data-toggle="checkbox" value="Musical" id="Musical" required>
+                                <input type="checkbox" data-toggle="checkbox" value="Musical" name="genre[]" id="Musical" required>
                                 Musical
                               </label>
                               <label class="checkbox" for="Mystery">
-                                <input type="checkbox" data-toggle="checkbox" value="Mystery" id="Mystery" required>
+                                <input type="checkbox" data-toggle="checkbox" value="Mystery" name="genre[]" id="Mystery" required>
                                 Mystery
                               </label>
                               <label class="checkbox" for="Romance">
-                                <input type="checkbox" data-toggle="checkbox" value="Romance" id="Romance" required>
+                                <input type="checkbox" data-toggle="checkbox" value="Romance" name="genre[]" id="Romance" required>
                                 Romance
                               </label>
                               <label class="checkbox" for="Sci-Fi">
-                                <input type="checkbox" data-toggle="checkbox" value="Sci-Fi" id="Sci-Fi" required>
+                                <input type="checkbox" data-toggle="checkbox" value="Sci-Fi" name="genre[]" id="Sci-Fi" required>
                                 Sci-Fi
                               </label>
                               <label class="checkbox" for="Short">
-                                <input type="checkbox" data-toggle="checkbox" value="Short" id="Short" required>
+                                <input type="checkbox" data-toggle="checkbox" value="Short" name="genre[]" id="Short" required>
                                 Short
                               </label>
                               <label class="checkbox" for="Thriller">
-                                <input type="checkbox" data-toggle="checkbox" value="Thriller" id="Thriller" required>
+                                <input type="checkbox" data-toggle="checkbox" value="Thriller" name="genre[]" id="Thriller" required>
                                 Thriller
                               </label>
                               <label class="checkbox" for="War">
-                                <input type="checkbox" data-toggle="checkbox" value="War" id="War" required>
+                                <input type="checkbox" data-toggle="checkbox" value="War" name="genre[]" id="War" required>
                                 War
                               </label>
                               <label class="checkbox" for="Western">
-                                <input type="checkbox" data-toggle="checkbox" value="Western" id="Western" required>
+                                <input type="checkbox" data-toggle="checkbox" value="Western" name="genre[]" id="Western" required>
                                 Western
                               </label>
                             </div>
