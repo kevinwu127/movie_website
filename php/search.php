@@ -55,10 +55,10 @@
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container-fluid">
 
       <div class="starter-template">
-        <h1 class=" scene_element scene_element--fadein">Search Results</h1>
+        <h1 class=" scene_element scene_element--fadein" style="font-size:36px;">Search Results</h1>
         
         <!-- PHP SCRIPT HERE -->
         <?php
@@ -70,18 +70,39 @@
                   $search = htmlspecialchars($search);
                   $search = mysql_real_escape_string($search);
 
+                  $searchActor = 1;
+                  $numSpaces = substr_count($search, ' ', 0, strlen($search)-1);
+                  //echo $numSpaces;
+                  $first = "";
+                  $last = "";
+                  if ($numSpaces > 1)
+                  {
+                    $searchActor = 0;
+                  }
                   $search_terms = explode(' ', $search);
+
 
                   // search in Actor
                   $actor_query = "SELECT *
                                   FROM Actor
-                                  WHERE last LIKE '%$search_terms[1]%'
-                                  AND first LIKE '%$search_terms[0]%';";
+                                  WHERE (last LIKE '%$search_terms[1]%'
+                                  AND first LIKE '%$search_terms[0]%')
+                                  OR (last LIKE '%$search%');";
 
-                  $actor_result = mysql_query($actor_query, $db_connection);
-                  if (mysql_num_rows($actor_result) > 0)
+                  // search in Movie
+                  $movie_query = "SELECT *
+                                  FROM Movie
+                                  WHERE title LIKE '%$search%';";
+                  if ($searchActor == 1)
+                  {
+                    $actor_result = mysql_query($actor_query, $db_connection);
+                  }
+                  $movie_result = mysql_query($movie_query, $db_connection);
+                  
+                  if ($searchActor==1 && mysql_num_rows($actor_result) > 0)
                   {
         ?>
+                      <h1 class=" scene_element scene_element--fadein">Actors</h1>
                       <table class="table table-condensed table-hover scene_element scene_element--fadein">
                         <thead class="table-header">
                           <tr>
@@ -108,16 +129,47 @@
                       </table>
         <?php
                   }
-                  else
-                  {
-                      echo "<p>There are no actors by that name</p>";
-                  }
+                  // else
+                  // {
+                  //     echo "<p>There are no actors by that name</p>";
+                  // }
+                  if (mysql_num_rows($movie_result) > 0)
+              {
+                ?>
+                  <h1 class=" scene_element scene_element--fadein">Movies</h1>
+                  <table class="table table-condensed table-hover scene_element scene_element--fadein">
+                        <thead class="table-header">
+                          <tr>
+                            <th>&nbsp;&nbsp;Title</th>
+                            <th>Release Year</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                  <?php
+                      $i = 1; // new line
+                      while ($results = mysql_fetch_assoc($movie_result)) 
+                      {
+                  ?>
+                          <tr>
+                            <td>&nbsp;&nbsp;<?php echo $results['title'] ?></td>
+                            <td><?php echo $results['year'] ?></td>
+                          </tr>
+                  <?php
+                      }
+                  ?>
+                        </tbody>
+                      </table>
+                  <?php
+              }
 
               }
               else
               {
                   echo "<p>There's nothing here...</p>";
               }
+              
+
+              
 
 
               // Close connection
