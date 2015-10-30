@@ -229,6 +229,12 @@ $(document).ready(function() {
   });
 
 
+  // Actor links
+  $('.actorLink').click(function(){
+    window.location.href = "#";
+  });
+
+
 });
 
 

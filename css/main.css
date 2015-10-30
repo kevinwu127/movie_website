@@ -194,6 +194,10 @@ tbody tr:last-child td:last-child {
 	font-size: 50px;
 }
 
+.actorLink {
+	cursor: pointer;
+}
+
 #actor {
 	display: none;
 }

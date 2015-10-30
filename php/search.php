@@ -51,6 +51,16 @@
             <li><a href="../new.html">Add New</a></li>
             <li class="active"><a href="#">Browse</a></li>
           </ul>
+          <form class="navbar-form navbar-right" role="search" method="get" action="search.php">
+            <div class="form-group">
+              <div class="input-group">
+                <input class="form-control" name="search" type="search" placeholder="Search">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn"><span class="fui-search"></span></button>
+                </span>
+              </div>
+            </div>
+          </form>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -117,7 +127,7 @@
                       while ($results = mysql_fetch_assoc($actor_result)) 
                       {
         ?>
-                          <tr>
+                          <tr class="actorLink">
                             <td>&nbsp;&nbsp;<?php echo $results['first']."&nbsp;".$results['last'] ?></td>
                             <td><?php echo $results['dob'] ?></td>
                             <td><?php echo $results['dod'] ?></td>
@@ -177,12 +187,7 @@
         ?>
       </div><!-- /starter-template -->
        
-      <form class="input-group center-search-bar scene_element scene_element--fadeinup" role="search" method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        <input name="search" type="text" class="form-control" placeholder="Search again...">
-        <span class="input-group-btn">
-          <button class="btn" type="submit"><span class="fui-search"></span></button>
-        </span>
-      </form>
+      
 
       <div class="scroll-top-wrapper">
         <span class="scroll-top-inner">
