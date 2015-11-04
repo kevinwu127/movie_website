@@ -189,6 +189,18 @@ $(function(){
 // SEARCH PAGES
 $(function() {
 
+  $('.actorLink').each(function() {
+
+    var tableData = $(this).children("td").map(function() {
+      return $(this).text();
+    }).get();
+
+    var id = $.trim(tableData[1]);
+
+    $(this).attr("id", id);
+
+  });
+
 
   $('.actorLink').click(function(){
     var tableData = $(this).children("td").map(function() {
