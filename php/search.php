@@ -129,6 +129,7 @@
         ?>
                           <tr class="actorLink">
                             <td>&nbsp;&nbsp;<?php echo $results['first']."&nbsp;".$results['last'] ?></td>
+                            <td style="display:none;"><?php echo $results['id'] ?></td>
                             <td><?php echo $results['dob'] ?></td>
                             <td><?php echo $results['dod'] ?></td>
                           </tr>
@@ -160,8 +161,9 @@
                       while ($results = mysql_fetch_assoc($movie_result)) 
                       {
                   ?>
-                          <tr>
+                          <tr class="movieLink">
                             <td>&nbsp;&nbsp;<?php echo $results['title'] ?></td>
+                            <td style="display:none;"><?php echo $results['id'] ?></td>
                             <td><?php echo $results['year'] ?></td>
                           </tr>
                   <?php

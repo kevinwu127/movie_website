@@ -48,7 +48,7 @@
 				if( !$update_result )
 					die('Invalid query: ' .mysql_error());
 				else
-					echo "Success!";
+					echo "Successfully added " . $actorFirst . " " . $actorLast . " to the Actor Table!";
 			}
 
 			break;
@@ -95,7 +95,7 @@
 				if( !$update_result )
 					die('Invalid query: ' .mysql_error());
 				else
-					echo "Success!";
+					echo "Successfully added " . $directorFirst . " " . $directorLast . " to the Director Table!";
 			}
 
 
@@ -148,20 +148,59 @@
 				if( !$update_result )
 					die('Invalid query: ' .mysql_error());
 				else
-					echo "Success!";
+					echo "Successfully added " . $movieTitle . " to the Movie Table!";
 			}
 
 			break;
 		case 'relation':
-			echo "This is the relation field\n";
 			
 			if ($_POST['relation'] == 'movie_actor')
 			{
-				echo "Movie Actor Relation";
+				$movie_id = $_POST['movie_actor_movie'];
+				$actor_id = $_POST['movie_actor_actor'];
+				$role = $_POST['role'];
+				$role = htmlspecialchars($role);
+				$role = mysql_real_escape_string($role);
+
+				if ($movie_id == "" || $actor_id == "" || $role == "")
+				{
+					echo "Please fill in all blanks";
+					break;
+				}
+				else
+				{
+					$movie_actor_query = "INSERT INTO MovieActor ( mid, aid, role )
+										  VALUES ( '$movie_id', '$actor_id', '$role' )";
+					$result = mysql_query($movie_actor_query);
+					if( !$result )
+						die('Invalid query:' .mysql_error());
+					else
+					{
+						echo "Successfully added " . $movie_id . " and " . $actor_id . " to the MovieActor Table!";
+					}
+				}
 			}
 			else
 			{
-				echo "Movie Director Relation";
+				$movie_id = $_POST['movie_director_movie'];
+				$director_id = $_POST['movie_director_director'];
+				if ($movie_id == "" || $director_id == "")
+				{
+					echo "Please fill in all blanks";
+					break;
+				}
+				else
+				{
+					$movie_director_query = "INSERT INTO MovieDirector ( mid, did )
+											 VALUES ( '$movie_id', '$director_id' )";
+					$result = mysql_query($movie_director_query);
+					if( !$result )
+						die('Invalid query:' .mysql_error());
+					else
+					{
+						echo "Successfully added " . $movie_id . " and " . $director_id . " to the MovieDirector Table!";
+					}
+				}
 			}
 
 			break;

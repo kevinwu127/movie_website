@@ -69,7 +69,12 @@
     <!-- MAIN CONTAINER -->
     <div class="container-fluid">
 
+
+
       <div class="starter-template">
+        <div class="notif">
+            <div class="alert alert-block alert-success"></div>
+        </div>
         <h1 class="scene_element scene_element--fadein">Add New Content</h1>
         <div class="row">
           <div class="col-lg-3">
@@ -353,23 +358,19 @@
                       <div class="form-group">
                         <label for="movie_actor_movie" class="control-label col-xs-2">Movie</label>
                         <div class="col-xs-10">
-                          <select data-toggle="select" class="form-control select select-primary mrs mbm" id="movie_actor_movie">
-                              <option value="Default">Default</option>
-                          </select>
+                          <input type="text" class="form-control flat" id="movie_actor_movie" name="movie_actor_movie" placeholder="Search for a movie...">
                         </div>
                       </div><!-- /form-group -->
                       <div class="form-group">
                         <label for="movie_actor_actor" class="control-label col-xs-2">Actor</label>
                         <div class="col-xs-10">
-                          <select data-toggle="select" class="form-control select select-primary mrs mbm" id="movie_actor_actor">
-                              <option value="Default">Default</option>
-                          </select>
+                          <input type="text" class="form-control flat" id="movie_actor_actor" name="movie_actor_actor" placeholder="Search for an actor...">
                         </div>
                       </div><!-- /form-group -->
                       <div class="form-group">
                         <label for="role" class="control-label col-xs-2">Role</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control flat" id="role" placeholder="Role">
+                            <input type="text" class="form-control flat" id="role" name="role" placeholder="Role">
                         </div>
                       </div><!-- /form-group -->
                       <div class="form-group">
@@ -381,17 +382,13 @@
                       <div class="form-group">
                         <label for="movie_director_movie" class="control-label col-xs-2">Movie</label>
                         <div class="col-xs-10">
-                          <select data-toggle="select" class="form-control select select-primary mrs mbm" id="movie_director_movie">
-                              <option value="Default">Default</option>
-                          </select>
+                          <input type="text" class="form-control flat" id="movie_director_movie" name="movie_director_movie" placeholder="Search for a movie...">
                         </div>
                       </div><!-- /form-group -->
                       <div class="form-group">
                         <label for="movie_director_director" class="control-label col-xs-2">Director</label>
                         <div class="col-xs-10">
-                          <select data-toggle="select" class="form-control select select-primary mrs mbm" id="movie_director_director">
-                              <option value="Default">Default</option>
-                          </select>
+                          <input type="text" class="form-control flat" id="movie_director_director" name="movie_director_director" placeholder="Search for a director...">
                         </div>
                       </div><!-- /form-group -->
                       <div class="form-group">
@@ -423,6 +420,7 @@
     <script src="js/flat-ui.min.js"></script>
     <script src="js/radiocheck.js"></script>
     <script src="js/application.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 
   </body>

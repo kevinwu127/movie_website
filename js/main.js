@@ -64,13 +64,165 @@ function handle(form) {
             type: "POST",
             url: "php/handle.php",
             data: formData,
-            success: function(text) {
-              alert(text);
+            success: function displayResult(text) {
+                $('.notif').fadeIn('fast');
+                $('.alert').show().html(text);
+                window.setTimeout(function(){
+                  $('.notif').fadeOut('fast');
+
+                }, 3000);
             }
       });
 }
 
+function replace_in_form(name, value, formData) {
+  var index;
+  for (index = 0; index < formData.length; ++index)
+    if(formData[index].name == name) {
+      formData[index].value = value;
+      break;
+    }
+}
+
+function handle_relation(form, movie_actor, movie_director, actor, director) {
+
+  var formData = $(form).serializeArray();
+
+  replace_in_form("movie_actor_movie", movie_actor, formData);
+  replace_in_form("movie_actor_actor", actor, formData);
+  replace_in_form("movie_director_movie", movie_director, formData);
+  replace_in_form("movie_director_director", director, formData);
+
+  formData = jQuery.param(formData);
+
+  $.ajax({
+        type: "POST",
+        url: "php/handle.php",
+        data: formData,
+        success: function displayResult(text) {
+            $('.notif').fadeIn('fast');
+            $('.alert').show().html(text);
+            window.setTimeout(function(){
+                  $('.notif').fadeOut('fast');
+
+                }, 3000);
+        }
+  });
+
+}
+
+// RELATIONS
+
+
+$(function(){
+
+  var movie_actor_id = "";
+  var movie_director_id = "";
+  var actor_id = "";
+  var director_id = "";
+
+  function setMovieActorID(item) {
+    movie_actor_id = item.value;
+  }
+
+  function setMovieDirectorID(item) {
+    movie_director_id = item.value;
+  }
+
+  function setActorID(item) {
+    actor_id = item.value;
+  }
+
+  function setDirectorID(item) {
+    director_id = item.value;
+  }
+
+  $('#movie_actor_movie').typeahead({
+      ajax: {
+        url: 'php/movies.php',
+
+        displayField: 'title',
+        valueField: 'id'
+      },
+      onSelect: setMovieActorID
+  });
+
+  $('#movie_actor_actor').typeahead({
+      ajax: {
+      url: 'php/actors.php',
+
+      displayField: 'name' ,
+      valueField: 'id'
+      },
+      onSelect: setActorID
+  });
+
+  $('#movie_director_movie').typeahead({
+      ajax: {
+        url: 'php/movies.php',
+
+        displayField: 'title',
+        valueField: 'id'
+      },
+      onSelect: setMovieDirectorID
+  });
+
+  $('#movie_director_director').typeahead({
+      ajax: {
+        url: 'php/directors.php',
+
+        displayField: 'name',
+        valueField: 'id'
+      },
+      onSelect: setDirectorID
+  });
+
+  $('.relation_form_button').on("click", function(e) {
+        e.preventDefault();
+        handle_relation('#form_r', movie_actor_id, movie_director_id, actor_id, director_id);
+  });
+
+
+});
+
+
+// SEARCH PAGES
+$(function() {
+
+
+  $('.actorLink').click(function(){
+    var tableData = $(this).children("td").map(function() {
+      return $(this).text();
+    }).get();
+
+    var params = { id:$.trim(tableData[1]) };
+    var str = jQuery.param(params);
+    
+    var url = "profile.php?" + str;
+    window.location.href = url;
+
+  });
+
+  $('.movieLink').click(function(){
+    var tableData = $(this).children("td").map(function() {
+      return $(this).text();
+    }).get();
+
+    var params = { id:$.trim(tableData[1]) };
+    var str = jQuery.param(params);
+    
+    var url = "movie_info.php?" + str;
+    window.location.href = url;
+
+  });
+
+});
+
+
+
 $(document).ready(function() {
+
+  //$("#movie_actor_actor").load('php/actor_dropdown.php');
 
   // ACTOR
 
@@ -173,10 +325,6 @@ $(document).ready(function() {
 
   // RELATION
 
-  $('.relation_form_button').on("click", function(e) {
-        e.preventDefault();
-        handle('#form_r');
-  });
 
   $('#relation_btn').click(function(){    
           $('#relation_btn').fadeOut('fast', function() {
@@ -227,13 +375,6 @@ $(document).ready(function() {
           });
           
   });
-
-
-  // Actor links
-  $('.actorLink').click(function(){
-    window.location.href = "#";
-  });
-
 
 });
 
