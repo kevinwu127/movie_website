@@ -230,11 +230,52 @@ $(function() {
 
 });
 
+// ACTOR PROFILE PAGES
+
+$(function() {
+
+  $('.movie_starred').each(function() {
+
+      var mid = $(this).children('.movie_id').text();
+      $(this).children('.movie_page_link').attr('id', mid);
+  });
+
+  $('.movie_page_link').click(function() {
+
+      var params = { id: $(this).attr('id') };
+      var str = jQuery.param(params);
+
+      var url = "movie_info.php?" + str;
+      window.location.href = url;
+  });
+
+});
+
+// MOVIE INFO PAGES
+
+$(function() {
+
+  $('.actor_links').each(function() {
+
+      var mid = $(this).children('.actor_id').text();
+      $(this).children('.actor_page_link').attr('id', mid);
+
+  });
+
+  $('.actor_page_link').click(function() {
+
+      var params = { id: $(this).attr('id') };
+      var str = jQuery.param(params);
+
+      var url = "profile.php?" + str;
+      window.location.href = url;
+  });
+
+});
+
 
 
 $(document).ready(function() {
-
-  //$("#movie_actor_actor").load('php/actor_dropdown.php');
 
   // ACTOR
 
