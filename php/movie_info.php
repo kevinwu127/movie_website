@@ -17,6 +17,7 @@
     <!-- Custom styles for this template -->
     <link href="../css/main.css" rel="stylesheet">
     <link href="../css/flat-ui.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-stars.css" rel="stylesheet">
 
     <!-- Google font -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" type="text/css">
@@ -66,7 +67,7 @@
       </div>
     </nav>
 
-    <div class="container-fluid scene_element scene_element--fadeinup">
+    <div class="container-fluid">
     	<div class="starter-template">
     		<div class="profile">
 
@@ -80,8 +81,9 @@
 					$result = mysql_fetch_assoc(mysql_query("SELECT * FROM Movie WHERE id='$id'"));
 					if ($result)
 					{
-						echo "<h1>" . $result['title'] . "</h1><br />";
-							echo "<div class='col-md-6'>";
+						echo "<h1 class='scene_element scene_element--fadein'>" . $result['title'] . "</h1><br />";
+
+							echo "<div class='col-md-6 scene_element scene_element--fadeinup'>";
 
 								echo "<ul style='list-style-type:none;'>";	
 
@@ -167,9 +169,86 @@
 								echo "</ul>";
 							echo "</div>";
 
-							echo "<div class='col-md-6'>";
+							echo "<div class='col-md-6 scene_element scene_element--fadeinup delay2'>";
 								
-								echo "<p>Comments</p>";
+								echo "<p style='font-size:20px;'>Reviews</p>";
+
+								echo "<div class='line-separator'></div>";
+
+								echo "<div class='review-rating'>";
+									echo "<div style='display:inline-block;'>";
+										echo "<p>Average Rating:&nbsp;&nbsp;</p>";
+									echo "</div>";
+									echo "<div style='display:inline-block;'>";
+										echo "<select id ='average_rating'>";
+											echo "<option value=''></option>";
+											echo "<option value='1'>1</option>";
+											echo "<option value='2'>2</option>";
+											echo "<option value='3'>3</option>";
+											echo "<option value='4'>4</option>";
+											echo "<option value='5'>5</option>";
+										echo "</select>";
+									echo "</div>";
+									echo "<div style='display:inline-block;'>";
+										$average_result = mysql_result(mysql_query("SELECT AVG(rating) FROM Review WHERE mid='$id'"), 0);
+										$average_result = substr($average_result, 0, -2);
+										$review_count = mysql_result(mysql_query("SELECT COUNT(*) FROM Review WHERE mid='$id'"), 0);
+										echo "<span id='average' style='display:none;'>" . $average_result . "</span>";
+										echo "<span id='count' style='display:none;'>" . $review_count . "</span>";
+										echo "<p>&nbsp;(<span id='average_result'>" . $average_result . "</span>/5)&nbsp;&nbsp;out of <span id='review_count'>" . $review_count . "</span> reviews.</p>";
+									echo "</div>";
+								echo "</div>";
+
+
+								echo "<form class='form' id='review_box'>";
+
+									echo "<input type='hidden' name='id' value='". $id . "'>";
+
+									echo "<div class='form-group'>";
+										echo "<label for='review'><p>Write a review!</p></label>";
+										echo "<textarea class='form-control' rows='5' name='review' id='review'></textarea>";
+									echo "</div>";
+
+									echo "<div class='form-group'>";
+										
+										echo '<input type="text" class="form-control flat" id="review" name="reviewer" placeholder="Your Name">';
+
+									echo "</div>";
+
+									echo "<div style='display:inline-block;'>";
+										echo "<p>Rate it!&nbsp;&nbsp;</p>";
+									echo "</div>";
+									echo "<div class='form-group'style='display:inline-block;'>";
+										echo "<select id='review_rating' name='review_rating'>";
+											echo "<option value='1'>1</option>";
+											echo "<option value='2'>2</option>";
+											echo "<option value='3'>3</option>";
+											echo "<option value='4'>4</option>";
+											echo "<option value='5'>5</option>";
+										echo "</select>";
+									echo "</div>";
+									echo "<div class='form-group' style='display:inline-block;'>";
+											echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+                  							echo '<button type="submit" id="review_form_button" class="btn btn-primary btn-wide">Submit</button>&nbsp;';
+                      						echo '<button type="reset" class="btn btn-default btn-wide" id="review_cancel">Cancel</button>';
+									echo "</div>";
+								echo "</form>";
+
+								echo "<div class='line-separator-long'></div>";
+
+								echo "<div id='comments'>";
+
+									$comments_result = mysql_query("SELECT * FROM Review WHERE mid='$id' ORDER BY time DESC");
+									while ($row = mysql_fetch_assoc($comments_result))
+									{
+											
+											echo "<p>" . ($row['name'] == NULL ? "Anonymous" : $row['name']) . " [" . $row['time'] . "] rated it:&nbsp;&nbsp;" . $row['rating'] . " / 5</p>";
+
+											echo "<p>" . $row['comment'] . "</p>";
+											echo "<div class='line-separator-long'></div>";
+									}
+
+								echo "</div>";
 
 							echo "</div>";
 						
@@ -193,6 +272,7 @@
     <script src="../js/flat-ui.min.js"></script>
     <script src="../js/radiocheck.js"></script>
     <script src="../js/application.js"></script>
+    <script src="../js/jquery.barrating.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 
   </body>

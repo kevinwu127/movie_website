@@ -215,6 +215,18 @@ $(function() {
 
   });
 
+  $('.movieLink').each(function() {
+
+    var tableData = $(this).children("td").map(function() {
+      return $(this).text();
+    }).get();
+
+    var id = $.trim(tableData[1]);
+
+    $(this).attr("id", id);
+
+  });
+
   $('.movieLink').click(function(){
     var tableData = $(this).children("td").map(function() {
       return $(this).text();
@@ -253,6 +265,8 @@ $(function() {
 
 // MOVIE INFO PAGES
 
+
+
 $(function() {
 
   $('.actor_links').each(function() {
@@ -269,6 +283,57 @@ $(function() {
 
       var url = "profile.php?" + str;
       window.location.href = url;
+  });
+
+  var average = parseInt($('#average').text());
+
+  $('#average_rating').barrating('show', {
+      theme: 'bootstrap-stars',
+      hoverState:false,
+      readonly:true,
+      initialRating: average
+  });
+
+  $('#review_rating').barrating( 'show', {
+      theme: 'bootstrap-stars'
+
+  });
+
+  function reviewSuccess(json_data) {
+
+    var data = $.parseJSON(json_data);
+
+    var average = parseFloat(data.average).toFixed(2);
+    $('#average_result').text(average);
+
+    $('#review_count').text(data.count);
+
+    $('#average_rating').barrating('set', parseInt(average));
+
+    var name = data.reviewer;
+    if (name == "")
+    {
+      name = "Anonymous";
+    }
+
+    var comment = "<p>" + name + " [" + data.time + "] rated it:&nbsp;&nbsp;" + data.rating + " / 5</p>" +
+                  "<p>" + data.review + "</p>" +
+                  "<div class='line-separator-long'></div>";
+    $('#comments').prepend(comment);
+
+  }
+
+  $('#review_form_button').on('click', function(e) {
+      e.preventDefault();
+      var formData = $('#review_box').serialize();
+
+      $.ajax({
+            type: "POST",
+            url: "add_review.php",
+            data: formData,
+            success: reviewSuccess            
+      });
+
   });
 
 });

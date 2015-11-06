@@ -135,6 +135,7 @@
     <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery.smoothState.js"></script>
+    <script src="../js/jquery.barrating.min.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/flat-ui.min.js"></script>
     <script src="../js/radiocheck.js"></script>

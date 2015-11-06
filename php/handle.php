@@ -176,7 +176,7 @@
 						die('Invalid query:' .mysql_error());
 					else
 					{
-						echo "Successfully added " . $movie_id . " and " . $actor_id . " to the MovieActor Table!";
+						echo "Successfully added to the MovieActor Table!";
 					}
 				}
 			}
@@ -198,7 +198,7 @@
 						die('Invalid query:' .mysql_error());
 					else
 					{
-						echo "Successfully added " . $movie_id . " and " . $director_id . " to the MovieDirector Table!";
+						echo "Successfully added to the MovieDirector Table!";
 					}
 				}
 			}

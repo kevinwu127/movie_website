@@ -211,6 +211,7 @@
     <script src="../js/flat-ui.min.js"></script>
     <script src="../js/radiocheck.js"></script>
     <script src="../js/application.js"></script>
+    <script src="../js/jquery.barrating.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 
   </body>
